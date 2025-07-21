@@ -4,32 +4,30 @@ import com.javarush.rybalchenko.islandsimulation.constants.Emojis;
 
 import java.util.List;
 
-public class Mouse extends Herbivore {
-    public Mouse() {
-        super(0.05, 500, 1, 0.01);
+public class Caterpillar extends  Herbivore{
+    public Caterpillar() {
+        super(0.01, 1000, 0, 0);
     }
 
     @Override
     public void move() {
-        System.out.println(Emojis.MOUSE + " The mouse is moving");
+        System.out.println(Emojis.CATERPILLAR + " Caterpillar doesn't move");
     }
 
     @Override
     public void reproduce() {
-        System.out.println(Emojis.MOUSE + " The mouse is reproducing");
+        System.out.println(Emojis.CATERPILLAR + " Caterpillar is reproducing");
     }
 
     @Override
     public void eat() {
         List<Plant> plants = currentLocation.getPlants();
         synchronized (plants) {
-            int needToEat = (int) Math.min((foodRequired - foodEaten) / 1.0, plants.size());
-
-            for (int i = 0; i < needToEat; i++) {
+            if(!plants.isEmpty()) {
                 plants.remove(0);
                 addFood(1.0);
+                System.out.println(Emojis.CATERPILLAR + " Caterpillar is eating a plants");
             }
-            System.out.println(Emojis.MOUSE + " The mouse is eating " + needToEat + " plants");
         }
     }
 }

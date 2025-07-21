@@ -1,5 +1,6 @@
 package com.javarush.rybalchenko.islandsimulation.spawn;
 
+import com.javarush.rybalchenko.islandsimulation.constants.Emojis;
 import com.javarush.rybalchenko.islandsimulation.map.Island;
 import com.javarush.rybalchenko.islandsimulation.map.Location;
 import com.javarush.rybalchenko.islandsimulation.model.*;
@@ -25,9 +26,10 @@ public class AnimalSpawner {
                 location.addAnimal(new Rabbit());
                 location.addAnimal(new Fox());
                 location.addAnimal(new Mouse());
+                location.addAnimal(new Caterpillar());
             }
         }
-        System.out.println("\uD83E\uDD81 Animals populated the island");
+        System.out.println(Emojis.ANIMALS + " Animals populated the island");
     }
 
 

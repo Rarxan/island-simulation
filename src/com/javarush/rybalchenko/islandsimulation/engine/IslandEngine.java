@@ -1,5 +1,6 @@
 package com.javarush.rybalchenko.islandsimulation.engine;
 
+import com.javarush.rybalchenko.islandsimulation.constants.Emojis;
 import com.javarush.rybalchenko.islandsimulation.map.Island;
 
 import java.util.concurrent.Executors;
@@ -20,6 +21,7 @@ public class IslandEngine {
     }
 
     private void runCycle() {
-        System.out.println("\uD83C\uDF0D Running island simulation");
+        new LifeCycleTask(island).run();
+        System.out.println(Emojis.ISLAND + " Running island simulation");
     }
 }
