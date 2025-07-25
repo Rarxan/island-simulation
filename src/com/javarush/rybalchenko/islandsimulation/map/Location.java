@@ -2,6 +2,7 @@ package com.javarush.rybalchenko.islandsimulation.map;
 
 import com.javarush.rybalchenko.islandsimulation.model.Animal;
 import com.javarush.rybalchenko.islandsimulation.model.Plant;
+import com.javarush.rybalchenko.islandsimulation.model.Wolf;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,4 +27,5 @@ public class Location {
     public List<Plant> getPlants() {
         return plants;
     }
+
 }

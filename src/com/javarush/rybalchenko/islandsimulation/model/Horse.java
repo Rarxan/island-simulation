@@ -11,6 +11,7 @@ public class Horse extends Herbivore {
 
     @Override
     public void move() {
+        animalMovingLogic();
         System.out.println(Emojis.HORSE + " Horse is moving");
     }
 

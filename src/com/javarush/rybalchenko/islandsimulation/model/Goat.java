@@ -11,6 +11,7 @@ public class Goat extends Herbivore {
 
     @Override
     public void move() {
+        animalMovingLogic();
         System.out.println(Emojis.GOAT + " Goat is moving");
     }
 

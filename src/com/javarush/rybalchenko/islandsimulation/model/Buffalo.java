@@ -11,6 +11,7 @@ public class Buffalo extends Herbivore {
 
     @Override
     public void move() {
+        animalMovingLogic();
         System.out.println(Emojis.BUFFALO + " Buffalo is moving");
     }
 

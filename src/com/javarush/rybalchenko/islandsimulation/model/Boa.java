@@ -8,14 +8,21 @@ import java.util.Random;
 
 public class Boa extends Predator {
 
+    public static final double WEIGHT = 15.0;
+    public static final int MAX_IN_CELL = 30;
+    public static final int MAX_SPEED = 1;
+    public static final double FOOD_REQUIRED = 3.0;
+    public static final int RABBIT_HUNT_SUCCESS_CHANCE = 20;
+
     public static final Random random = new Random();
 
     public Boa() {
-        super(15.0, 30, 1, 3.0);
+        super(WEIGHT, MAX_IN_CELL, MAX_SPEED, FOOD_REQUIRED);
     }
 
     @Override
     public void move() {
+        animalMovingLogic();
         System.out.println(Emojis.BOA + " Boa is moving");
     }
 
@@ -32,7 +39,7 @@ public class Boa extends Predator {
             while (iterator.hasNext()) {
                 Animal target = iterator.next();
                 if (target instanceof Rabbit && target.isAlive() && target != this) {
-                    if (random.nextInt(100) < 20) {
+                    if (random.nextInt(100) < RABBIT_HUNT_SUCCESS_CHANCE) {
                         iterator.remove();
                         target.alive = false;
                         this.addFood(target.weight);
