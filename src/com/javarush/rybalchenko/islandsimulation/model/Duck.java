@@ -12,6 +12,7 @@ public class Duck extends Herbivore {
 
     @Override
     public void move() {
+        animalMovingLogic();
         System.out.println(Emojis.DUCK + " Duck is moving");
     }
 

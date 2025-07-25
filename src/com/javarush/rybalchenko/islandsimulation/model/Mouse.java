@@ -11,6 +11,7 @@ public class Mouse extends Herbivore {
 
     @Override
     public void move() {
+        animalMovingLogic();
         System.out.println(Emojis.MOUSE + " The mouse is moving");
     }
 

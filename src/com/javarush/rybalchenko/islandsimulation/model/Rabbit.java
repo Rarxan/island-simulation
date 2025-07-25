@@ -12,6 +12,7 @@ public class Rabbit extends Herbivore {
 
     @Override
     public void move() {
+        animalMovingLogic();
         System.out.println(Emojis.RABBIT + " Rabbit is moving");
     }
 
@@ -25,9 +26,9 @@ public class Rabbit extends Herbivore {
         List<Plant> plants = currentLocation.getPlants();
 
         synchronized (plants) {
-            if (!plants.contains(this)) {
+            if (!plants.isEmpty()) {
                 plants.remove(0);
-                this.addFood(1.0);
+                addFood(1.0);
                 System.out.println(Emojis.RABBIT + " Rabbit is eating a plant!");
             }
         }

@@ -12,6 +12,7 @@ public class Deer extends Herbivore {
 
     @Override
     public void move() {
+        animalMovingLogic();
         System.out.println(Emojis.DEER + " Deer is moving");
     }
 
