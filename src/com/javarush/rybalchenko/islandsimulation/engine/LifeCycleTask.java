@@ -26,6 +26,7 @@ public class LifeCycleTask {
 
                 synchronized (animals) {
                     for (Animal animal : animals) {
+                        animal.setCurrentLocation(location);
                         executor.submit(()->animal.liveCykle());
                     }
                 }

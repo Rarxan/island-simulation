@@ -27,6 +27,14 @@ public class AnimalSpawner {
                 location.addAnimal(new Fox());
                 location.addAnimal(new Mouse());
                 location.addAnimal(new Caterpillar());
+                location.addAnimal(new Eagle());
+                location.addAnimal(new Boa());
+                location.addAnimal(new Deer());
+                location.addAnimal(new Sheep());
+                location.addAnimal(new Boar());
+                location.addAnimal(new Duck());
+                location.addAnimal(new Buffalo());
+                location.addAnimal(new Goat());
             }
         }
         System.out.println(Emojis.ANIMALS + " Animals populated the island");
