@@ -9,9 +9,13 @@ public class Horse extends Herbivore {
         super(400.0, 20, 4, 60.0);
     }
 
+    public String getEmoji(){
+        return Emojis.HORSE;
+    }
+
     @Override
     public void move() {
-        System.out.println(Emojis.HORSE + " Horse is moving");
+        animalMovingLogic();
     }
 
     @Override

@@ -19,6 +19,6 @@ public class Emojis {
     public static final String DUCK = "\uD83E\uDD86";
     public static final String BUFFALO = "\uD83D\uDC03";
     public static final String GOAT = "\uD83D\uDC10";
-
+    public static final String DEATH = "\uD83D\uDC80";
 
 }

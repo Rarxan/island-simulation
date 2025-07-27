@@ -9,9 +9,13 @@ public class Sheep extends Herbivore {
         super(70.0, 140, 3, 15.0);
     }
 
+    public String getEmoji(){
+        return Emojis.SHEEP;
+    }
+
     @Override
     public void move() {
-        System.out.println(Emojis.SHEEP + " Sheep is moving");
+        animalMovingLogic();
     }
 
     @Override

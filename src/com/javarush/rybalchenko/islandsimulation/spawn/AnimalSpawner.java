@@ -20,25 +20,32 @@ public class AnimalSpawner {
             for (int x = 0; x < map[y].length; x++) {
                 Location location = map[y][x];
 
-                location.addAnimal(new Wolf());
-                location.addAnimal(new Bear());
-                location.addAnimal(new Horse());
-                location.addAnimal(new Rabbit());
-                location.addAnimal(new Fox());
-                location.addAnimal(new Mouse());
-                location.addAnimal(new Caterpillar());
-                location.addAnimal(new Eagle());
-                location.addAnimal(new Boa());
-                location.addAnimal(new Deer());
-                location.addAnimal(new Sheep());
-                location.addAnimal(new Boar());
-                location.addAnimal(new Duck());
-                location.addAnimal(new Buffalo());
-                location.addAnimal(new Goat());
+
+                addAnimalLocation(new Wolf(),x, y, location);
+                addAnimalLocation(new Bear(),x, y, location);
+                addAnimalLocation(new Horse(),x, y, location);
+                addAnimalLocation(new Rabbit(),x, y, location);
+                addAnimalLocation(new Fox(),x, y, location);
+                addAnimalLocation(new Mouse(),x, y, location);
+                addAnimalLocation(new Caterpillar(),x, y, location);
+                addAnimalLocation(new Eagle(),x, y, location);
+                addAnimalLocation(new Boa(),x, y, location);
+                addAnimalLocation(new Deer(),x, y, location);
+                addAnimalLocation(new Sheep(),x, y, location);
+                addAnimalLocation(new Boar(),x, y, location);
+                addAnimalLocation(new Duck(),x, y, location);
+                addAnimalLocation(new Buffalo(),x, y, location);
+                addAnimalLocation(new Goat(),x, y, location);
+
             }
         }
         System.out.println(Emojis.ANIMALS + " Animals populated the island");
     }
 
-
+    public void addAnimalLocation (Animal animal, int x, int y, Location location) {
+        animal.setCoordinates(x,y);
+        animal.setIsland(island);
+        animal.setCurrentLocation(location);
+        location.addAnimal(animal);
+    }
 }

@@ -9,6 +9,10 @@ public class Goat extends Herbivore {
         super(60.0, 140, 3, 10);
     }
 
+    public String getEmoji(){
+        return Emojis.GOAT;
+    }
+
     @Override
     public void move() {
         System.out.println(Emojis.GOAT + " Goat is moving");
@@ -16,7 +20,7 @@ public class Goat extends Herbivore {
 
     @Override
     public void reproduce() {
-        System.out.println(Emojis.GOAT + " Goat is reproducing");
+        animalMovingLogic();
     }
 
     @Override

@@ -10,9 +10,13 @@ public class Duck extends Herbivore {
         super(1.0, 200, 4, 0.15);
     }
 
+    public String getEmoji(){
+        return Emojis.DUCK;
+    }
+
     @Override
     public void move() {
-        System.out.println(Emojis.DUCK + " Duck is moving");
+        animalMovingLogic();
     }
 
     @Override

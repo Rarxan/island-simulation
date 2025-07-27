@@ -4,19 +4,21 @@ import com.javarush.rybalchenko.islandsimulation.constants.Emojis;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class Fox extends Predator{
 
-    private static Random random = new Random();
-
     public Fox() {
         super(8.0, 30, 2, 2.0);
+    }
+    public String getEmoji(){
+        return Emojis.FOX;
     }
 
     @Override
     public void move() {
-        System.out.println(Emojis.FOX + " The fox is moving");
+        animalMovingLogic();
     }
 
     @Override
@@ -24,27 +26,14 @@ public class Fox extends Predator{
         System.out.println(Emojis.FOX + " The fox is reproducing");
     }
 
-    @Override
-    public void eat() {
-        List<Animal> animals = currentLocation.getAnimals();
+    private static final Map<Class<? extends Animal>, Integer> HUNT_CHANCES = Map.ofEntries(
+            Map.entry(Rabbit.class, 70),
+            Map.entry(Mouse.class, 90),
+            Map.entry(Duck.class, 60),
+            Map.entry(Caterpillar.class, 40)
+    );
 
-        synchronized (animals) {
-            Iterator<Animal> iterator = animals.iterator();
-
-            while (iterator.hasNext()) {
-                Animal target = iterator.next();
-                if (target instanceof Mouse && target.isAlive() && target!=this) {
-                    if (random.nextInt(100) < 90) {
-                        iterator.remove();
-                        target.alive = false;
-                        this.addFood(target.weight);
-                        System.out.println(Emojis.FOX + " The fox is ate a mouse...");
-                        break;
-                    }
-                }
-            }
-        }
-
-        System.out.println(Emojis.FOX + " The fox is eating");
+    protected Map<Class<? extends Animal>, Integer> getHuntChances() {
+        return HUNT_CHANCES;
     }
 }

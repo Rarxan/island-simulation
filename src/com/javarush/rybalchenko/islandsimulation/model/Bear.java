@@ -2,21 +2,21 @@ package com.javarush.rybalchenko.islandsimulation.model;
 
 import com.javarush.rybalchenko.islandsimulation.constants.Emojis;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Bear extends Predator {
-
-    private static Random random = new Random();
 
     public Bear() {
         super(500.0, 5, 2, 80.0);
     }
 
+    public String getEmoji(){
+        return Emojis.BEAR;
+    }
+
     @Override
     public void move() {
-        System.out.println(Emojis.BEAR + " A bear is moving");
+        animalMovingLogic();
     }
 
     @Override
@@ -24,33 +24,18 @@ public class Bear extends Predator {
         System.out.println(Emojis.BEAR + " The bear is reproducing");
     }
 
-    @Override
-    public void eat() {
+    private static final Map<Class<? extends Animal>, Integer> HUNT_CHANCES = Map.ofEntries(
+            Map.entry(Rabbit.class, 80),
+            Map.entry(Mouse.class, 90),
+            Map.entry(Deer.class, 80),
+            Map.entry(Goat.class, 70),
+            Map.entry(Sheep.class, 70),
+            Map.entry(Boar.class, 50),
+            Map.entry(Buffalo.class, 20),
+            Map.entry(Duck.class, 10)
+    );
 
-        List<Animal> animals = currentLocation.getAnimals();
-        synchronized (animals) {
-            Iterator<Animal> iterator = animals.iterator();
-
-            while (iterator.hasNext()) {
-                Animal target = iterator.next();
-                if (target != this && target.isAlive()) {
-                    if (target instanceof Rabbit && random.nextInt(100)<80) {
-                        iterator.remove();
-                        target.alive = false;
-                        this.addFood(target.weight);
-                        System.out.println(Emojis.BEAR + " Bear ate a rabbit!");
-                        break;
-                    }
-                    if (target instanceof Mouse && random.nextInt(100)<90) {
-                        iterator.remove();
-                        target.alive = false;
-                        this.addFood(target.weight);
-                        System.out.println(Emojis.BEAR + " Bear ate a mouse!");
-                        break;
-                    }
-                }
-            }
-        }
-        System.out.println(Emojis.BEAR + " The bear is eating");
+    protected Map<Class<? extends Animal>, Integer> getHuntChances() {
+        return HUNT_CHANCES;
     }
 }
