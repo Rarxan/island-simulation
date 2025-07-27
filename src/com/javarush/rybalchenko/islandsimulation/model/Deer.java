@@ -10,10 +10,13 @@ public class Deer extends Herbivore {
         super(300.0, 20, 4, 50.0);
     }
 
+    public String getEmoji() {
+        return Emojis.DEER;
+    }
+
     @Override
     public void move() {
         animalMovingLogic();
-        System.out.println(Emojis.DEER + " Deer is moving");
     }
 
     @Override

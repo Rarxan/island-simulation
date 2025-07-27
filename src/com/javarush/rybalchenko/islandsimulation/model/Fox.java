@@ -21,10 +21,13 @@ public class Fox extends Predator{
         super(WEIGHT, MAX_IN_CELL, MAX_SPEED, FOOD_REQUIRED);
     }
 
+    public String getEmoji(){
+        return Emojis.FOX;
+    }
+
     @Override
     public void move() {
         animalMovingLogic();
-        System.out.println(Emojis.FOX + " The fox is moving");
     }
 
     @Override

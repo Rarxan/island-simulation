@@ -20,10 +20,13 @@ public class Boa extends Predator {
         super(WEIGHT, MAX_IN_CELL, MAX_SPEED, FOOD_REQUIRED);
     }
 
+    public String getEmoji() {
+        return Emojis.BOA;
+    }
+
     @Override
     public void move() {
         animalMovingLogic();
-        System.out.println(Emojis.BOA + " Boa is moving");
     }
 
     @Override

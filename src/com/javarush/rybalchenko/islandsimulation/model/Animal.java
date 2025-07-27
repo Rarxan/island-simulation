@@ -1,5 +1,6 @@
 package com.javarush.rybalchenko.islandsimulation.model;
 
+import com.javarush.rybalchenko.islandsimulation.constants.Emojis;
 import com.javarush.rybalchenko.islandsimulation.map.Island;
 import com.javarush.rybalchenko.islandsimulation.map.Location;
 
@@ -25,15 +26,16 @@ public abstract class Animal {
     }
 
 
-    public void liveCykle() {
+    public void liveCyсle() {
 
         eat();
         move();
         reproduce();
 
         if (foodEaten < foodRequired) {
-            System.out.println(getClass().getSimpleName() + " is starving!");
             alive = false;
+            System.out.printf("%s %s has starved to death at (%d %d)%n", Emojis.DEATH, getClass().getSimpleName(), x, y);
+            //System.out.println(getClass().getSimpleName() + " is starving!");
         } else {
             foodEaten = 0;
         }
@@ -102,7 +104,11 @@ public abstract class Animal {
                 setCurrentLocation(newLocation);
             }
         }
-        System.out.println(getClass().getSimpleName() + " is moving from (" + oldX + "," + oldY + ") to " + " (" + newX + "," + newY + ")");
+        System.out.printf("%s %s moved from (%d %d) to (%d %d)%n", getEmoji(),getClass().getSimpleName(), oldX, oldY, newX, newY);
+    }
+
+    public String getEmoji(){
+        return "";
     }
 
 }

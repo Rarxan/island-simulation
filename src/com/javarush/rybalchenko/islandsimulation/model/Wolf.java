@@ -22,9 +22,13 @@ public class Wolf extends Predator {
     }
 
     @Override
+    public String getEmoji() {
+        return Emojis.WOLF;
+    }
+
+    @Override
     public void move() {
         animalMovingLogic();
-        System.out.println(Emojis.WOLF + " Wolf is moving");
     }
 
     @Override

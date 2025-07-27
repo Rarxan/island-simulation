@@ -10,10 +10,13 @@ public class Rabbit extends Herbivore {
         super(2.0, 150, 2, 0.45);
     }
 
+    public String getEmoji() {
+        return Emojis.RABBIT;
+    }
+
     @Override
     public void move() {
         animalMovingLogic();
-        System.out.println(Emojis.RABBIT + " Rabbit is moving");
     }
 
     @Override

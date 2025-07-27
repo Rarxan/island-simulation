@@ -21,10 +21,14 @@ public class Bear extends Predator {
         super(WEIGHT, MAX_IN_CELL, MAX_SPEED, FOOD_REQUIRED);
     }
 
+    public String getEmoji() {
+        return Emojis.BEAR;
+    }
+
     @Override
     public void move() {
         animalMovingLogic();
-        System.out.println(Emojis.BEAR + " A bear is moving");
+        //System.out.println(Emojis.BEAR + " A bear is moving");
     }
 
     @Override

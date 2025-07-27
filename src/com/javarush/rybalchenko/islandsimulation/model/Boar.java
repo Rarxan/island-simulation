@@ -9,10 +9,13 @@ public class Boar extends Herbivore {
         super(400.0, 50, 2, 50.0);
     }
 
+    public String getEmoji() {
+        return Emojis.BOAR;
+    }
+
     @Override
     public void move() {
         animalMovingLogic();
-        System.out.println(Emojis.BOAR + " Boar is moving");
     }
 
     @Override

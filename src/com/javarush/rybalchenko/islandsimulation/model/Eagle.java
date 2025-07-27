@@ -20,10 +20,13 @@ public class Eagle extends Predator {
         super(WEIGHT, MAX_IN_CELL, MAX_SPEED, FOOD_REQUIRED);
     }
 
+    public String getEmoji() {
+        return Emojis.EAGLE;
+    }
+
     @Override
     public void move() {
         animalMovingLogic();
-        System.out.println(Emojis.EAGLE + " Eagle is flying");
     }
 
     @Override

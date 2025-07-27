@@ -21,7 +21,9 @@ public class IslandEngine {
     }
 
     private void runCycle() {
-        new LifeCycleTask(island).run();
+        LifeCycleTask task = new LifeCycleTask(island);
+        task.run();
+        task.growPlants();
         System.out.println(Emojis.ISLAND + " Running island simulation");
     }
 }
