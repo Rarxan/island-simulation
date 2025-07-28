@@ -3,7 +3,6 @@ package com.javarush.rybalchenko.islandsimulation.engine;
 import com.javarush.rybalchenko.islandsimulation.map.Island;
 import com.javarush.rybalchenko.islandsimulation.map.Location;
 import com.javarush.rybalchenko.islandsimulation.model.Animal;
-import com.javarush.rybalchenko.islandsimulation.spawn.AnimalSpawner;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -27,7 +26,7 @@ public class LifeCycleTask {
                 synchronized (animals) {
                     for (Animal animal : animals) {
                         animal.setCurrentLocation(location);
-                        executor.submit(()->animal.liveCykle());
+                        executor.submit(()->animal.liveCycle());
                     }
                 }
             }

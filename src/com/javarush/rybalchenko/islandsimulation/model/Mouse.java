@@ -9,9 +9,13 @@ public class Mouse extends Herbivore {
         super(0.05, 500, 1, 0.01);
     }
 
+    public String getEmoji(){
+        return Emojis.MOUSE;
+    }
+
     @Override
     public void move() {
-        System.out.println(Emojis.MOUSE + " The mouse is moving");
+        animalMovingLogic();
     }
 
     @Override

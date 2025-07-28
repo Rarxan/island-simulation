@@ -9,6 +9,10 @@ public class Caterpillar extends  Herbivore{
         super(0.01, 1000, 0, 0);
     }
 
+    public String getEmoji(){
+        return Emojis.CATERPILLAR;
+    }
+
     @Override
     public void move() {
         System.out.println(Emojis.CATERPILLAR + " Caterpillar doesn't move");
